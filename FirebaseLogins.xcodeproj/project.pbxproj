@@ -13,6 +13,7 @@
 		D8FFBD4F1E843A0200162349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FFBD4E1E843A0200162349 /* Assets.xcassets */; };
 		D8FFBD521E843A0200162349 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FFBD501E843A0200162349 /* LaunchScreen.storyboard */; };
 		D8FFBD5A1E843EBE00162349 /* UIView + Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FFBD591E843EBE00162349 /* UIView + Anchors.swift */; };
+		D8FFBD5D1E8448B800162349 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8FFBD5C1E8448B800162349 /* GoogleService-Info.plist */; };
 		D94B45AD6EE0DD4AA3CBA960 /* Pods_FirebaseLogins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040C87A21C1B2A7E78011CD6 /* Pods_FirebaseLogins.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		D8FFBD531E843A0200162349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8FFBD591E843EBE00162349 /* UIView + Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Anchors.swift"; sourceTree = "<group>"; };
 		D8FFBD5B1E8441EC00162349 /* FirebaseLogins.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FirebaseLogins.entitlements; sourceTree = "<group>"; };
+		D8FFBD5C1E8448B800162349 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				D8FFBD4E1E843A0200162349 /* Assets.xcassets */,
 				D8FFBD501E843A0200162349 /* LaunchScreen.storyboard */,
 				D8FFBD531E843A0200162349 /* Info.plist */,
+				D8FFBD5C1E8448B800162349 /* GoogleService-Info.plist */,
 			);
 			path = FirebaseLogins;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8FFBD521E843A0200162349 /* LaunchScreen.storyboard in Resources */,
+				D8FFBD5D1E8448B800162349 /* GoogleService-Info.plist in Resources */,
 				D8FFBD4F1E843A0200162349 /* Assets.xcassets in Resources */,
 				D8FFBD4D1E843A0200162349 /* Main.storyboard in Resources */,
 			);
