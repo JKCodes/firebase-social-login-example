@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
@@ -61,6 +62,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
 
     func showEmailAddress() {
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        
+        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+            if error != nil {
+                print("MOR: Error authenticating Facebook User on Firebase: \(error)")
+                return
+            }
+            
+            print("MOR: Successfully logged in Facebook user: \(user)")
+        })
+        
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
             
             if err != nil {
