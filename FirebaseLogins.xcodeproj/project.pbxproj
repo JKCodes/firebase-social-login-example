@@ -109,6 +109,7 @@
 				D8FFBD421E843A0100162349 /* Resources */,
 				8E44B78FD1C27455E45ACBB8 /* [CP] Embed Pods Frameworks */,
 				260C7908927644B089528F44 /* [CP] Copy Pods Resources */,
+				D8CDC7231E845A6400D43F4F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -218,6 +219,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseLogins/Pods-FirebaseLogins-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D8CDC7231E845A6400D43F4F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 5296781c007577d9e248010b3580742f711791c7 efb9d419dd2ca6a01231ec8655703bc5a17d4c6ce59176c0c9421e725e3c7f4b";
 		};
 /* End PBXShellScriptBuildPhase section */
 

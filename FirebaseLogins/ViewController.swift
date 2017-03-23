@@ -10,6 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
+import TwitterKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
@@ -36,6 +37,33 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
 
         setupFacebookButtons()
         setupGoogleButtons()
+        setupTwitterButton()
+    }
+    
+    private func setupTwitterButton() {
+        let twitterButton = TWTRLogInButton { (session, error) in
+            if let err = error {
+                print("MOR: Failed to login via Twitter: \(err)")
+            }
+            
+            print("MOR: Successfully logged into Twitter")
+        
+            guard let token = session?.authToken, let secret = session?.authTokenSecret else { return }
+            
+            let credentials = FIRTwitterAuthProvider.credential(withToken: token, secret: secret)
+            
+            FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+                
+                if let err = error {
+                    print("MOR: Failed to login to Firebase with Twitter: \(err)")
+                }
+                
+                print("MOR: Successfully logged into Firebase using Twitter: \(user)")
+            })
+        }
+        
+        view.addSubview(twitterButton)
+        twitterButton.anchor(top: customGoogleButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 16, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 50)
     }
     
     private func setupGoogleButtons() {
@@ -61,7 +89,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         view.addSubview(loginButton)
         view.addSubview(customFBButton)
         
-        loginButton.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 50, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 30)   // As of 4.19.0, the height is now capped at 30 for some reason...
+        loginButton.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 50, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 28)   // As of 4.19.0, the height is now capped at 28 for some reason...
         
         loginButton.delegate = self
         loginButton.readPermissions = ["email", "public_profile"]
